@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stop Clock</title>
+  <style>
+    body {
+      background-image: url(https://img1.picmix.com/output/stamp/normal/8/3/8/7/1867838_7a794.gif);
+     background-repeat:no-repeat;
+     background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      padding: 30px 25px;
+      background-color: #ffffff;
+      border: 2px solid #453535;
+      width: 280px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    #count {
+      font-size: 30px;
+      margin: 20px 0;
+      color: #2d3436;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #e2e6ea;
+      color: #000;
+      cursor: pointer;
+    }
+
+    button.start {
+      background-color: #c34c73;
+      color: white;
+    }
+
+    button.stop {
+      background-color: #f18fc1;
+      color: white;
+    }
+
+    button.reset {
+      background-color: #ced4da;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Stop Clock</h1>
+    <p id="count">0</p>
+    <div class="button-group">
+      <button class="start" onclick="start()">Start</button>
+      <button class="stop" onclick="stop()">Stop</button>
+      <button class="reset" onclick="reset()">Reset</button>
+    </div>
+  </div>
+
+  <script>
+    let intervalId;
+
+    function start() {
+      if (!intervalId) {
+        intervalId = setInterval(() => {
+          const count = document.getElementById('count');
+          count.textContent = Number(count.textContent) + 1;
+        }, 1000);
+      }
+    }
+
+    function stop() {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+
+    function reset() {
+      clearInterval(intervalId);
+      intervalId = null;
+      document.getElementById('count').textContent = '0';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fahrenheit to Celsius</title>
+  <style>
+    body {
+      background-image: url(https://img1.picmix.com/output/stamp/normal/8/3/8/7/1867838_7a794.gif);
+     background-repeat:no-repeat;
+     background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border: 2px solid #453535;
+      border-radius: 15px;
+      padding: 30px 25px;
+      width: 280px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+      text-align: left;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    input[type="number"]:focus {
+      border-color: #74c0fc;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #df6ebd;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #5bd850;
+    }
+
+    #result {
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #2d3436;
+      min-height: 28px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Fahrenheit to Celsius</h2>
+    <label for="fahrenheit">Fahrenheit:</label>
+    <input type="number" id="fahrenheit" />
+
+    <button onclick="convertToCelsius()">Convert</button>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function convertToCelsius() {
+      const f = Number(document.getElementById("fahrenheit").value);
+      const c = (f - 32) * 5 / 9;
+      document.getElementById("result").textContent = `${f}°F = ${c.toFixed(2)}°C`;
+    }
+  </script>
+</body>
+</html>
